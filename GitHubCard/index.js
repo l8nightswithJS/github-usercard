@@ -2,6 +2,27 @@
            (replacing the palceholder with your Github name):
            https://api.github.com/users/<your name>
 */
+  const cardQuery = document.querySelector('.card');
+
+  axios.all([
+    axios.get('https://api.github.com/users/l8nightswithJS'),
+    axios.get('https://api.github.com/users/tetondan'),
+    axios.get('https://api.github.com/users/dustinmyers'),
+    axios.get('https://api.github.com/users/justsml'),
+    axios.get('https://api.github.com/users/luishrd'),
+    axios.get('https://api.github.com/users/bigknell')
+
+  ])
+    .then((responseArr) => {
+      console.log(responseArr)
+        const followersArray = responseArr;
+        // cardQuery.appendChild(data);
+        
+
+    })
+    .catch((err) => {
+      console.log(err);
+    })
 
 /* Step 2: Inspect and study the data coming back, this is YOUR 
    github info! You will need to understand the structure of this 
@@ -14,6 +35,8 @@
            create a new component and add it to the DOM as a child of .cards
 */
 
+
+
 /* Step 5: Now that you have your own card getting added to the DOM, either 
           follow this link in your browser https://api.github.com/users/<Your github name>/followers 
           , manually find some other users' github handles, or use the list found 
@@ -25,11 +48,32 @@
 */
 
 const followersArray = [];
+console.log(followersArray);
 
 /* Step 3: Create a function that accepts a single object as its only argument,
-          Using DOM methods and properties, create a component that will return the following DOM element:
+          Using DOM methods and properties, create a component that will return the following DOM element: 
+*/
 
-<div class="card">
+function createCard(userInfo) {
+  const card = document.createElement('div');
+  const cardImg = document.createElement('img');
+  const cardInfo = document.createElement('div');
+  const name = document.createElement('h3');
+  const userName = document.createElement('p');
+  const location = document.createElement('p');
+  const profileUrl = document.createElement('p');
+  const anchor = document.createElement('a');
+  const followers = document.createElement('p');
+  const following = document.createElement('p');
+  const bio = document.createElement('p')
+
+} 
+
+
+
+
+
+/*<div class="card">
   <img src={image url of user} />
   <div class="card-info">
     <h3 class="name">{users name}</h3>
@@ -48,8 +92,8 @@ const followersArray = [];
 
 /* List of LS Instructors Github username's: 
   tetondan
-  dustinmyers
   justsml
+  dustinmyers
   luishrd
   bigknell
 */
